@@ -1,0 +1,6 @@
+{
+  "name": "Peer JS with authentication",
+  "description": "Using 64 char peer IDs which are valided on server side via ed25519 signatures",
+  "repository": "https://github.com/timaschew/peerjs-with-auth/",
+  "keywords": ["node", "p2p", "peerjs", "auth"]
+}
