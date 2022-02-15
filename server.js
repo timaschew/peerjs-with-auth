@@ -14,7 +14,7 @@ app.use('/api',peerServer)
 
 peerServer.on('connection', async function(connection) {
 	const { id, token } =  connection
-	if (id.length == 64 && id.match(/[^0123456789abcdef]/) == null) {
+	if (id.length == 64) {
 		const [mode, signature, message] = token.split('|')
 		if (mode === 'ed25519') {
 			date = new Date(parseInt(message, 16))
@@ -36,7 +36,7 @@ peerServer.on('connection', async function(connection) {
 		}
 		connection.socket.send(JSON.stringify({
 			type: 'ERROR',
-			payload: '64 hex IDs are only allowed with valid ed25519 signatures. Use token=ed25519|<SIG>|<MSG>'
+			payload: '64 char-long (hex) IDs are only allowed with valid ed25519 signatures. Use token=ed25519|<SIG>|<MSG>'
 		}))
 		connection.socket.close()
 	}
