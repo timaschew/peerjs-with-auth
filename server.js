@@ -10,7 +10,12 @@ peerServer = ExpressPeerServer(server, {
 	debug: true
 })
 
-app.use('/api',peerServer)
+app.use('/', (req, res, next) => {
+	return res.send('OK')
+})
+
+
+app.use('/api', peerServer)
 
 peerServer.on('connection', async function(connection) {
 	const { id, token } =  connection
