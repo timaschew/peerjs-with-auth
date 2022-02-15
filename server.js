@@ -1,7 +1,7 @@
 const ed = require('@noble/ed25519')
 const express = require('express')
 const ExpressPeerServer = require('peer').ExpressPeerServer
-const PORT = process.env.PORT | 9000
+const PORT = process.env.PORT || 9000
 
 const app = express()
 const server = app.listen(PORT)
