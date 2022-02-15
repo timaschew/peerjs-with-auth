@@ -5,8 +5,13 @@
 The server checks if a peer ID has 64 chars.
 
 In that case the ID is treated as a public ed25519 key which is validated against the signature and messsage send by the client.
+If the signature, message and public key does not match the connection to the client is closed.
 
-- [base on PeerJS Server](https://github.com/peers/peerjs-server)
+This is useful to allow clients to use permanent peer IDs which cannot be stolen (while they are disconnected).
+
+Peer IDs less or more than 64 chars are not validated.
+
+- [based on PeerJS Server](https://github.com/peers/peerjs-server)
 - [noble-ed25519](https://github.com/paulmillr/noble-ed25519)
 
 ## Payload example
